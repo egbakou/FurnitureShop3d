@@ -16,4 +16,9 @@
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
     <PackageReference Include="Xamarin.Plugin.SharedTransitions" Version="2.2.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
 </Project>
