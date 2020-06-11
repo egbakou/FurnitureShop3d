@@ -11,6 +11,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\NunitoSans-Bold.ttf" />
+    <None Remove="Resources\Fonts\NunitoSans-Regular.ttf" />
+    <None Remove="Resources\Fonts\NunitoSans-SemiBold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\NunitoSans-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\NunitoSans-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\NunitoSans-SemiBold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.847" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
@@ -18,7 +30,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Resources\Fonts\" />
+    <Compile Update="Views\SeatingView.xaml.cs">
+      <DependentUpon>SeatingView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\SeatingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

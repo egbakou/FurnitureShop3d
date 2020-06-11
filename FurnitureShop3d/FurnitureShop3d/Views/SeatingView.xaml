@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FurnitureShop3d.Views.SeatingView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="#BABDCE "
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+        <!--  A GRID OF 3 SECTIONS  -->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Margin="15,10,0,0">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    Text="Seating"
+                    TextColor="#4A4C57" />
+                <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
+                    <StackLayout
+                        BindableLayout.ItemsSource="{Binding PropertyTypeList}"
+                        Orientation="Horizontal"
+                        Spacing="2">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <pancake:PancakeView
+                                    Margin="5,10,0,10"
+                                    BackgroundColor="#E3E4EB"
+                                    CornerRadius="20"
+                                    HasShadow="False">
+                                    <pancake:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SelectType" />
+                                    </pancake:PancakeView.GestureRecognizers>
+                                    <Label
+                                        x:Name="PropertyTypeName"
+                                        Padding="20,10"
+                                        FontFamily="ThemeFontRegular"
+                                        FontSize="16"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding TypeName}"
+                                        TextColor="#707070" />
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundGradientStops" Value="{x:Null}" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundGradientStops">
+                                                        <Setter.Value>
+                                                            <pancake:GradientStopCollection>
+                                                                <pancake:GradientStop Offset="0" Color="Black" />
+                                                                <pancake:GradientStop Offset="0.5" Color="Black" />
+                                                                <pancake:GradientStop Offset="1" Color="#323144" />
+                                                            </pancake:GradientStopCollection>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="BackgroundGradientAngle" Value="270" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </pancake:PancakeView>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
