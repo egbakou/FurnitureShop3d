@@ -4,11 +4,10 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 
-[assembly: ExportFont("NunitoSans-Regular.ttf", Alias = "ThemeFontRegular")]
-[assembly: ExportFont("NunitoSans-SemiBold.ttf", Alias = "ThemeFontMedium")]
-[assembly: ExportFont("NunitoSans-Bold.ttf", Alias = "ThemeFontBold")]
-[assembly: ExportFont("Roboto-Bold.ttf", Alias = "RobotoBold")]
-[assembly: ExportFont("Roboto-Regular.ttf", Alias = "RobotoRegular")]
+[assembly: ExportFont("Anton-Regular.ttf", Alias = "AntonRegularFont")]
+[assembly: ExportFont("BreeSerif-Regular.ttf", Alias = "BreeSerifRegularFont")]
+[assembly: ExportFont("Hind-Light.ttf", Alias = "HindLightFont")]
+[assembly: ExportFont("Hind-Regular.ttf", Alias = "HindRegularFont")]
 namespace FurnitureShop3d
 {
     public partial class App : Application

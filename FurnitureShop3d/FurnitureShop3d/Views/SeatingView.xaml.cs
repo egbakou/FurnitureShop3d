@@ -16,6 +16,7 @@ namespace FurnitureShop3d.Views
         {
             InitializeComponent();
             this.BindingContext = this;
+            SelectAllFilter();
         }
 
         public List<PropertyType> PropertyTypeList => GetPropertyTypes();
@@ -32,6 +33,10 @@ namespace FurnitureShop3d.Views
             };
         }
 
+        private void SelectAllFilter()
+        {
+            SelectType(filterBox.Children[0], null);
+        }
         private void SelectType(object sender, EventArgs e)
         {
             var view = sender as View;

@@ -5,27 +5,32 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:FurnitureShop3d.Models"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     BackgroundColor="#BABDCE "
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
 
     <ContentPage.Content>
-        <!--  A GRID OF 3 SECTIONS  -->
+        <!--  A GRID OF 2 SECTIONS  -->
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
-            <StackLayout Grid.Row="0" Margin="15,10,0,0">
+            <!--  FILTER BOX  -->
+            <StackLayout Grid.Row="0">
                 <Label
+                    Margin="15,10,0,0"
                     FontAttributes="Bold"
-                    FontSize="30"
+                    FontFamily="BreeSerifRegularFont"
+                    FontSize="40"
                     Text="Seating"
                     TextColor="#4A4C57" />
                 <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
                     <StackLayout
+                        x:Name="filterBox"
+                        Margin="15,0,0,0"
                         BindableLayout.ItemsSource="{Binding PropertyTypeList}"
                         Orientation="Horizontal"
                         Spacing="2">
@@ -42,7 +47,7 @@
                                     <Label
                                         x:Name="PropertyTypeName"
                                         Padding="20,10"
-                                        FontFamily="ThemeFontRegular"
+                                        FontFamily="HindRegulartFont"
                                         FontSize="16"
                                         HorizontalOptions="Center"
                                         Text="{Binding TypeName}"
@@ -76,6 +81,19 @@
                     </StackLayout>
                 </ScrollView>
             </StackLayout>
+
+            <!--  FURNITURE LIST  -->
+            <Grid Grid.Row="1">
+                <pancake:PancakeView
+                    Margin="15,0,15,0"
+                    Padding="10"
+                    BackgroundColor="White"
+                    CornerRadius="20"
+                    HeightRequest="160"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start" />
+            </Grid>
+
 
         </Grid>
     </ContentPage.Content>

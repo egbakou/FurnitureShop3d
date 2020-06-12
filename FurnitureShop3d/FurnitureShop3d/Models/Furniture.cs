@@ -13,6 +13,6 @@ namespace FurnitureShop3d.Models
         public string Description { get; set; }
         public string Price { get; set; }
         public Category Categoty { get; set; }
-        public List<Color> Colors { get; set; }
+        public List<string> Colors { get; set; }
     }
 }
