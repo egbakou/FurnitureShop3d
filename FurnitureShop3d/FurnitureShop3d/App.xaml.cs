@@ -1,4 +1,5 @@
 ﻿using FurnitureShop3d.Views;
+using Plugin.SharedTransitions;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +17,7 @@ namespace FurnitureShop3d
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SeatingView());
+            MainPage = new SharedTransitionNavigationPage(new SeatingView());
         }
 
         protected override void OnStart()

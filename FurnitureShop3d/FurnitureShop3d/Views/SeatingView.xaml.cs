@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FurnitureShop3d.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,32 +13,34 @@ namespace FurnitureShop3d.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeatingView : ContentPage
     {
+        private SeatingViewModel viewModel;
+
         public SeatingView()
         {
             InitializeComponent();
-            this.BindingContext = this;
+            BindingContext = viewModel = new SeatingViewModel();
             SelectAllFilter();
         }
 
-        public List<PropertyType> PropertyTypeList => GetPropertyTypes();
+        //public List<PropertyType> PropertyTypeList => GetPropertyTypes();
 
-        private List<PropertyType> GetPropertyTypes()
-        {
-            return new List<PropertyType>
-            {
-                new PropertyType { TypeName = "All" },
-                new PropertyType { TypeName = "Office chairs" },
-                new PropertyType { TypeName = "Reclainers" },
-                new PropertyType { TypeName = "Loungue chairs" },
-                new PropertyType { TypeName = "Office" }
-            };
-        }
+        //private List<PropertyType> GetPropertyTypes()
+        //{
+        //    return new List<PropertyType>
+        //    {
+        //        new PropertyType { TypeName = "All" },
+        //        new PropertyType { TypeName = "Office chairs" },
+        //        new PropertyType { TypeName = "Reclainers" },
+        //        new PropertyType { TypeName = "Loungue chairs" },
+        //        new PropertyType { TypeName = "Office" }
+        //    };
+        //}
 
         private void SelectAllFilter()
         {
-            SelectType(filterBox.Children[0], null);
+            SelectCategory(filterBox.Children[0], null);
         }
-        private void SelectType(object sender, EventArgs e)
+        private void SelectCategory(object sender, EventArgs e)
         {
             var view = sender as View;
             var parent = view.Parent as StackLayout;

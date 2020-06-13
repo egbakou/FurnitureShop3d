@@ -91,7 +91,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\back_arrow.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FurnitureShop3d\FurnitureShop3d.csproj">
       <Project>{F4F820FD-1484-4EBD-A65C-A09C70685385}</Project>
