@@ -1,4 +1,4 @@
-# Furniture Shopping - 3D : A Xamarin.Forms UI Challenge 
+# Xamarin.Forms UI Challenge : Furniture Shopping - 3D
 
 This UI Challenge is based on the fantastic dribble designs by [Saptarshi Prakash](https://dribbble.com/saptarshipr).
 
