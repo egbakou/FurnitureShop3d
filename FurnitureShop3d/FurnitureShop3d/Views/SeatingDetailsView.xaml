@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FurnitureShop3d.Views.SeatingDetailsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:FurnitureShop3d.Behaviors"
+    xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+    xmlns:controls="clr-namespace:FurnitureShop3d.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
+    xmlns:sharedTransition="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+    x:Name="RootPage"
+    ios:Page.PreferredStatusBarUpdateAnimation="Fade"
+    ios:Page.PrefersHomeIndicatorAutoHidden="true"
+    ios:Page.PrefersStatusBarHidden="True"
+    BackgroundColor="#BABDCE"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid Margin="0,0,0,80">
+                <controls:TitleBar />
+            </Grid>
+
+            <cards:CoverFlowView
+                x:Name="coverFlowView"
+                IsClippedToBounds="False"
+                IsViewReusingEnabled="False"
+                ItemAppeared="OnCoverFlowViewItemAppeared"
+                ItemsSource="{Binding Items}"
+                PositionShiftValue="0"
+                VerticalOptions="FillAndExpand">
+
+                <x:Arguments>
+                    <proc:CoverFlowProcessor OpacityFactor="0.5" ScaleFactor="0.7" />
+                </x:Arguments>
+
+                <cards:CoverFlowView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Grid.Row="2"
+                            Margin="20,0,20,20"
+                            CornerRadius="20"
+                            HasShadow="False"
+                            HorizontalOptions="FillAndExpand"
+                            IsClippedToBounds="False"
+                            VerticalOptions="FillAndExpand">
+                            <StackLayout Margin="0,-160,0,0">
+                                <!--  image  -->
+                                <Image
+                                    sharedTransition:Transition.Name="SelectedItemImage"
+                                    HeightRequest="230"
+                                    Source="{Binding Image}"
+                                    VerticalOptions="Start" />
+
+                                <!--  name and price  -->
+                                <Label
+                                    Margin="0,-40"
+                                    Padding="0"
+                                    FontAttributes="Bold"
+                                    FontFamily="AntonRegularFont"
+                                    FontSize="24"
+                                    HorizontalOptions="Center"
+                                    Text="Janet" />
+                                <Label
+                                    Margin="0,30"
+                                    FontFamily="HintLightFont"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    Text="$599"
+                                    VerticalOptions="Fill" />
+
+                                <Label
+                                    Margin="0,-20"
+                                    FontFamily="HindRegularFont"
+                                    FontSize="16"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Meet Janet- a dainty lounge chair that will up the glam quotient of any space. Use this comfy design as Or as a study chair to think deep thoughts in."
+                                    VerticalOptions="Center" />
+                                <!--  color picker  -->
+                                <ScrollView
+                                    Grid.Row="1"
+                                    HorizontalScrollBarVisibility="Never"
+                                    Orientation="Horizontal"
+                                    VerticalOptions="EndAndExpand">
+                                    <StackLayout
+                                        BindableLayout.ItemsSource="{Binding Variations}"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="CenterAndExpand">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid HeightRequest="60" WidthRequest="60">
+                                                    <Frame
+                                                        Padding="0"
+                                                        BorderColor="#DDDDDD"
+                                                        CornerRadius="35"
+                                                        HasShadow="False"
+                                                        HeightRequest="55"
+                                                        HorizontalOptions="Center"
+                                                        IsVisible="{Binding IsSelected}"
+                                                        VerticalOptions="Center"
+                                                        WidthRequest="55" />
+                                                    <BoxView
+                                                        BackgroundColor="{Binding ColorHex}"
+                                                        CornerRadius="25"
+                                                        HeightRequest="40"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        WidthRequest="40" />
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </ScrollView>
+
+                                <!--  buy button  -->
+                                <Button
+                                    BackgroundColor="#232434"
+                                    CornerRadius="10"
+                                    Text="Buy"
+                                    TextColor="White"
+                                    VerticalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </Frame>
+
+                    </DataTemplate>
+                </cards:CoverFlowView.ItemTemplate>
+            </cards:CoverFlowView>
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

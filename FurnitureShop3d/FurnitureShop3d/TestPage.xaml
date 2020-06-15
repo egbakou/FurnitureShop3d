@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FurnitureShop3d.TestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="AbsoluteLayout"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="Blue">
+                <BoxView BackgroundColor="Gray" />
+                <AbsoluteLayout>
+                    <Image Source="blue" />
+                </AbsoluteLayout>
+                <pancake:PancakeView
+                    Margin="15,-90,15,20"
+                    Padding="10"
+                    BackgroundColor="White"
+                    CornerRadius="20"
+                    Elevation="0"
+                    HeightRequest="150"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

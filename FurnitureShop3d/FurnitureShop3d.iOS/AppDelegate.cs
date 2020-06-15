@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using PanCardView.iOS;
 using UIKit;
+using Xamarin.Forms;
 
 namespace FurnitureShop3d.iOS
 {
@@ -22,7 +24,10 @@ namespace FurnitureShop3d.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Forms.SetFlags("CarouselView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            CardsViewRenderer.Preserve();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

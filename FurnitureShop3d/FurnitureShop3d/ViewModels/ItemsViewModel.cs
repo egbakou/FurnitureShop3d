@@ -13,6 +13,11 @@ namespace FurnitureShop3d.ViewModels
         private string price;
         private string description;
 
+        // behaviors
+        private double _position;
+        private double _rotation;
+        private double _scale;
+
         public string Name
         {
             get { return name; }
@@ -37,6 +42,24 @@ namespace FurnitureShop3d.ViewModels
             set { SetProperty(ref price, value); }
         }
 
+        public double Position
+        {
+            get { return _position; }
+            set { SetProperty(ref _position, value); }
+        }
+
+        public double Rotation
+        {
+            get { return _rotation; }
+            set { SetProperty(ref _rotation, value); }
+        }
+
+        public double Scale
+        {
+            get { return _scale; }
+            set { SetProperty(ref _scale, value); }
+        }
+
         public IList<VariationViewModel> Variations { get; set; }
 
         public Command VariationSelectedCommand { get; set; }
@@ -47,6 +70,8 @@ namespace FurnitureShop3d.ViewModels
             Image = item.Variations.FirstOrDefault()?.Image;
             Price = item.Price;
             Description = item.Description;
+
+            Scale = 1;
 
             // instantiate our collection of Variations
             Variations = new ObservableRangeCollection<VariationViewModel>();
@@ -62,7 +87,7 @@ namespace FurnitureShop3d.ViewModels
             VariationSelectedCommand = new Command<VariationViewModel>(VariationSelectedExecute);
         }
 
-        private void VariationSelectedExecute(VariationViewModel obj)
+        public void VariationSelectedExecute(VariationViewModel obj)
         {
             foreach (var item in Variations)
             {

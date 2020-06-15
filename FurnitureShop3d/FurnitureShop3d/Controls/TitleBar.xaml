@@ -7,16 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid VerticalOptions="Start">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <Image
-            Margin="15"
+            Margin="20"
+            HeightRequest="40"
             HorizontalOptions="Start"
-            Source="back_arrow"
+            Source="close"
             VerticalOptions="Center">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
             </Image.GestureRecognizers>
         </Image>
-    </Grid>
 
+        <Image
+            Grid.Column="1"
+            Margin="20"
+            HeightRequest="40"
+            HorizontalOptions="End"
+            Source="visualmodel"
+            VerticalOptions="Center" />
+    </Grid>
 </ContentView>

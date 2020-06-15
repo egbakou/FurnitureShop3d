@@ -1,4 +1,5 @@
 ﻿using FurnitureShop3d.ViewModels;
+using Plugin.SharedTransitions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,21 +22,7 @@ namespace FurnitureShop3d.Views
             BindingContext = viewModel = new SeatingViewModel();
             SelectAllFilter();
         }
-
-        //public List<PropertyType> PropertyTypeList => GetPropertyTypes();
-
-        //private List<PropertyType> GetPropertyTypes()
-        //{
-        //    return new List<PropertyType>
-        //    {
-        //        new PropertyType { TypeName = "All" },
-        //        new PropertyType { TypeName = "Office chairs" },
-        //        new PropertyType { TypeName = "Reclainers" },
-        //        new PropertyType { TypeName = "Loungue chairs" },
-        //        new PropertyType { TypeName = "Office" }
-        //    };
-        //}
-
+       
         private void SelectAllFilter()
         {
             SelectCategory(filterBox.Children[0], null);
@@ -57,16 +44,19 @@ namespace FurnitureShop3d.Views
 
         private void ChangeTextColor(View child, string hexColor)
         {
-            var txtCtrl = child.FindByName<Label>("PropertyTypeName");
+            var txtCtrl = child.FindByName<Label>("categoryName");
 
             if (txtCtrl != null)
                 txtCtrl.TextColor = Color.FromHex(hexColor);
         }
-    }
 
-    public class PropertyType
-    {
-        public string TypeName { get; set; }
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            var item = (sender as View).BindingContext as ItemsViewModel;
+            SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, item.Name);
+            await Navigation.PushAsync(new SeatingDetailsView(item));
+        }
     }
+    
 
 }

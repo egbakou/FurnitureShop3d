@@ -19,161 +19,167 @@
 
     <ContentPage.Content>
         <!--  main content  -->
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <!--  header navigation  -->
-            <Image
-                Grid.Row="0"
-                Margin="15,0,0,0"
-                HorizontalOptions="Start"
-                Source="back_arrow"
-                VerticalOptions="Center" />
-
-            <!--  title + categories section  -->
-            <StackLayout Grid.Row="1">
-                <!--  title  -->
-                <Label
+                <!--  header navigation  -->
+                <Image
+                    Grid.Row="0"
                     Margin="15,0,0,0"
-                    FontAttributes="Bold"
-                    FontFamily="BreeSerifRegularFont"
-                    FontSize="40"
-                    Text="Seating"
-                    TextColor="#4A4C57" />
-                <!--  categories section  -->
-                <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
-                    <StackLayout
-                        x:Name="filterBox"
-                        Margin="15,0,0,0"
-                        BindableLayout.ItemsSource="{Binding Categories}"
-                        Orientation="Horizontal"
-                        Spacing="2">
-                        <BindableLayout.ItemTemplate>
-                            <DataTemplate>
-                                <pancake:PancakeView
-                                    Margin="5,10,0,10"
-                                    BackgroundColor="#E3E4EB"
-                                    CornerRadius="20"
-                                    HasShadow="False">
-                                    <pancake:PancakeView.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="SelectCategory" />
-                                    </pancake:PancakeView.GestureRecognizers>
-                                    <Label
-                                        x:Name="PropertyTypeName"
-                                        Padding="20,10"
-                                        FontFamily="HindRegulartFont"
-                                        FontSize="16"
-                                        HorizontalOptions="Center"
-                                        Text="{Binding CategoryName}"
-                                        TextColor="#707070" />
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup x:Name="CommonStates">
-                                            <VisualState x:Name="Normal">
-                                                <VisualState.Setters>
-                                                    <Setter Property="BackgroundGradientStops" Value="{x:Null}" />
-                                                </VisualState.Setters>
-                                            </VisualState>
-                                            <VisualState x:Name="Selected">
-                                                <VisualState.Setters>
-                                                    <Setter Property="BackgroundGradientStops">
-                                                        <Setter.Value>
-                                                            <pancake:GradientStopCollection>
-                                                                <pancake:GradientStop Offset="0" Color="Black" />
-                                                                <pancake:GradientStop Offset="0.5" Color="Black" />
-                                                                <pancake:GradientStop Offset="1" Color="#323144" />
-                                                            </pancake:GradientStopCollection>
-                                                        </Setter.Value>
-                                                    </Setter>
-                                                    <Setter Property="BackgroundGradientAngle" Value="270" />
-                                                </VisualState.Setters>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </pancake:PancakeView>
-                            </DataTemplate>
-                        </BindableLayout.ItemTemplate>
-                    </StackLayout>
-                </ScrollView>
-            </StackLayout>
+                    HorizontalOptions="Start"
+                    Source="back_arrow"
+                    VerticalOptions="Center" />
 
-            <!--  furniture list  -->
-            <CollectionView
-                Grid.Row="2"
-                ItemsSource="{Binding Items}"
-                VerticalOptions="FillAndExpand">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <pancake:PancakeView
-                                Margin="15,0,15,0"
-                                Padding="10"
-                                BackgroundColor="White"
-                                CornerRadius="20"
-                                HeightRequest="150"
-                                HorizontalOptions="FillAndExpand"
-                                VerticalOptions="Start">
-                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="5*" />
-                                        <ColumnDefinition Width="5*" />
-                                    </Grid.ColumnDefinitions>
-                                    <StackLayout
-                                        Grid.Column="0"
-                                        Margin="10,0,0,0"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Center">
+                <!--  title + categories section  -->
+                <StackLayout Grid.Row="1">
+                    <!--  title  -->
+                    <Label
+                        Margin="15,0,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="BreeSerifRegularFont"
+                        FontSize="40"
+                        Text="Seating"
+                        TextColor="#4A4C57" />
+                    <!--  categories section  -->
+                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
+                        <StackLayout
+                            x:Name="filterBox"
+                            Margin="15,0,0,0"
+                            BindableLayout.ItemsSource="{Binding Categories}"
+                            Orientation="Horizontal"
+                            Spacing="2">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <pancake:PancakeView
+                                        Margin="5,10,0,10"
+                                        BackgroundColor="#E3E4EB"
+                                        CornerRadius="20"
+                                        HasShadow="False">
+                                        <pancake:PancakeView.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="SelectCategory" />
+                                        </pancake:PancakeView.GestureRecognizers>
                                         <Label
-                                            FontAttributes="Bold"
-                                            FontFamily="AntonRegularFont"
-                                            FontSize="24"
-                                            Text="{Binding Name}" />
-                                        <Label
-                                            Margin="0,-8"
-                                            FontFamily="HintLightFont"
-                                            FontSize="20"
-                                            Text="{Binding Price}" />
-                                        <StackLayout BindableLayout.ItemsSource="{Binding Variations}" Orientation="Horizontal">
-                                            <BindableLayout.ItemTemplate>
-                                                <DataTemplate>
-                                                    <BoxView
-                                                        BackgroundColor="{Binding ColorHex}"
-                                                        CornerRadius="25"
-                                                        HeightRequest="15"
-                                                        HorizontalOptions="Start"
-                                                        WidthRequest="15" />
-                                                </DataTemplate>
-                                            </BindableLayout.ItemTemplate>
+                                            x:Name="categoryName"
+                                            Padding="20,10"
+                                            FontFamily="HindRegulartFont"
+                                            FontSize="16"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding CategoryName}"
+                                            TextColor="#707070" />
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="BackgroundGradientStops" Value="{x:Null}" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                                <VisualState x:Name="Selected">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="BackgroundGradientStops">
+                                                            <Setter.Value>
+                                                                <pancake:GradientStopCollection>
+                                                                    <pancake:GradientStop Offset="0" Color="Black" />
+                                                                    <pancake:GradientStop Offset="0.5" Color="Black" />
+                                                                    <pancake:GradientStop Offset="1" Color="#323144" />
+                                                                </pancake:GradientStopCollection>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Setter Property="BackgroundGradientAngle" Value="270" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </pancake:PancakeView>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+
+                <!--  furniture list  -->
+                <CollectionView
+                    x:Name="furnitureCollection"
+                    Grid.Row="2"
+                    ItemsSource="{Binding Items}"
+                    VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <pancake:PancakeView
+                                    Margin="15,0,15,0"
+                                    Padding="10"
+                                    BackgroundColor="White"
+                                    CornerRadius="20"
+                                    HeightRequest="150"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Start">
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="5*" />
+                                            <ColumnDefinition Width="5*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            Margin="10,0,0,0"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="AntonRegularFont"
+                                                FontSize="24"
+                                                Text="{Binding Name}" />
+                                            <Label
+                                                Margin="0,-8"
+                                                FontFamily="HintLightFont"
+                                                FontSize="20"
+                                                Text="{Binding Price}" />
+                                            <StackLayout BindableLayout.ItemsSource="{Binding Variations}" Orientation="Horizontal">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <BoxView
+                                                            BackgroundColor="{Binding ColorHex}"
+                                                            CornerRadius="25"
+                                                            HeightRequest="15"
+                                                            HorizontalOptions="Start"
+                                                            WidthRequest="15" />
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                            <Label
+                                                FontSize="14"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="2"
+                                                Text="{Binding Description}" />
                                         </StackLayout>
-                                        <Label
-                                            FontSize="14"
-                                            LineBreakMode="TailTruncation"
-                                            MaxLines="2"
-                                            Text="{Binding Description}" />
-                                    </StackLayout>
-                                    <Image
-                                        Grid.Column="1"
-                                        Margin="0,0,10,0"
-                                        sharedTransition:Transition.Group="{Binding Name}"
-                                        sharedTransition:Transition.Name="SelectedItemImage"
-                                        Aspect="AspectFill"
-                                        HeightRequest="150"
-                                        HorizontalOptions="CenterAndExpand"
-                                        Rotation="10"
-                                        Source="{Binding Image}" />
-                                </Grid>
-                            </pancake:PancakeView>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
+                                        <Image
+                                            Grid.Column="1"
+                                            Margin="0,0,10,0"
+                                            sharedTransition:Transition.Group="{Binding Name}"
+                                            sharedTransition:Transition.Name="SelectedItemImage"
+                                            Aspect="AspectFill"
+                                            HeightRequest="150"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Rotation="0"
+                                            Source="{Binding Image}" />
+                                    </Grid>
+                                    <pancake:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </pancake:PancakeView.GestureRecognizers>
+                                </pancake:PancakeView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 
 </ContentPage>
