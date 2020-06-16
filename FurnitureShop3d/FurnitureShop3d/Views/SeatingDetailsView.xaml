@@ -21,6 +21,7 @@
     <ContentPage.Content>
 
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--  title bar  -->
             <Grid Margin="0,70,0,60">
                 <Grid.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
@@ -31,6 +32,7 @@
                 <controls:TitleBar />
             </Grid>
 
+            <!--  title bar  -->
             <cards:CoverFlowView
                 x:Name="coverFlowView"
                 IsClippedToBounds="False"
@@ -60,7 +62,7 @@
                                         <On Platform="Android" Value="0,-160,0,0" />
                                     </OnPlatform>
                                 </StackLayout.Margin>
-                                <!--  image  -->
+                                <!--  overlap image  -->
                                 <Image
                                     sharedTransition:Transition.Name="SelectedItemImage"
                                     HeightRequest="230"
@@ -71,17 +73,14 @@
                                 <Label
                                     Margin="0,-40"
                                     Padding="0"
-                                    FontAttributes="Bold"
-                                    FontFamily="AntonRegularFont"
-                                    FontSize="24"
                                     HorizontalOptions="Center"
-                                    Text="Janet" />
+                                    Style="{StaticResource ProductNameStyle}"
+                                    Text="{Binding Name}" />
                                 <Label
                                     Margin="0,30"
-                                    FontFamily="HintLightFont"
-                                    FontSize="20"
                                     HorizontalOptions="Center"
-                                    Text="$599"
+                                    Style="{StaticResource ProductPriceStyle}"
+                                    Text="{Binding Price}"
                                     VerticalOptions="Fill" />
 
                                 <!--  description  -->
@@ -91,7 +90,7 @@
                                     FontSize="16"
                                     HorizontalOptions="Center"
                                     HorizontalTextAlignment="Center"
-                                    Text="Meet Janet- a dainty lounge chair that will up the glam quotient of any space. Use this comfy design as Or as a study chair to think deep thoughts in."
+                                    Text="{Binding Description}"
                                     VerticalOptions="Center" />
                                 <!--  color picker  -->
                                 <ScrollView

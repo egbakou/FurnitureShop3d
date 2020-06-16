@@ -131,15 +131,10 @@
                                             Margin="10,0,0,0"
                                             HorizontalOptions="Center"
                                             VerticalOptions="Center">
-                                            <Label
-                                                FontAttributes="Bold"
-                                                FontFamily="AntonRegularFont"
-                                                FontSize="24"
-                                                Text="{Binding Name}" />
+                                            <Label Style="{StaticResource ProductNameStyle}" Text="{Binding Name}" />
                                             <Label
                                                 Margin="0,-8"
-                                                FontFamily="HintLightFont"
-                                                FontSize="20"
+                                                Style="{StaticResource ProductPriceStyle}"
                                                 Text="{Binding Price}" />
                                             <StackLayout BindableLayout.ItemsSource="{Binding Variations}" Orientation="Horizontal">
                                                 <BindableLayout.ItemTemplate>
