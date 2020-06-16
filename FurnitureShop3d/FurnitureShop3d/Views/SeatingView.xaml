@@ -12,7 +12,7 @@
     xmlns:sharedTransition="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
     ios:Page.PreferredStatusBarUpdateAnimation="Fade"
     ios:Page.PrefersHomeIndicatorAutoHidden="true"
-    ios:Page.PrefersStatusBarHidden="False"
+    ios:Page.PrefersStatusBarHidden="True"
     BackgroundColor="#BABDCE"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
