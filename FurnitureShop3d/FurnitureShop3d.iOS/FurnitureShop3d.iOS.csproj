@@ -138,8 +138,17 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\FurnitureShop3d\FurnitureShop3d.csproj">
-      <Project>{F4F820FD-1484-4EBD-A65C-A09C70685385}</Project>
+      <Project>{03C40509-5580-403C-B1AA-F85F842DC8E7}</Project>
       <Name>FurnitureShop3d</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back_arrow.png" />
+    <BundleResource Include="Resources\blue.png" />
+    <BundleResource Include="Resources\close.png" />
+    <BundleResource Include="Resources\orange.png" />
+    <BundleResource Include="Resources\pulpe.png" />
+    <BundleResource Include="Resources\red.png" />
+    <BundleResource Include="Resources\visualmodel.png" />
   </ItemGroup>
 </Project>

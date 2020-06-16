@@ -102,19 +102,11 @@ namespace FurnitureShop3d.Services
 
         internal static IEnumerable<Item> GetItemsForCategory(string obj)
         {
-            return Items.Where(n => n.Category.Contains(obj));
-        }
-
-        internal static IEnumerable<Item> GetItemsForCategory(Category selectedCategory)
-        {
-            if (selectedCategory.CategoryName.Equals("All"))
+            if (obj.Equals("All"))
                 return Items;
-            var selectedItems = new List<Item>();
-            foreach (var item in Items)
-            {
-                selectedItems.Add(item);
-            }
-            return selectedItems;
+            else
+                return Items.Where(n => n.Category.Contains(obj));
         }
+      
     }
 }

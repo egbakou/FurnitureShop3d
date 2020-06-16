@@ -12,7 +12,7 @@
     xmlns:sharedTransition="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
     ios:Page.PreferredStatusBarUpdateAnimation="Fade"
     ios:Page.PrefersHomeIndicatorAutoHidden="true"
-    ios:Page.PrefersStatusBarHidden="True"
+    ios:Page.PrefersStatusBarHidden="False"
     BackgroundColor="#BABDCE"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
@@ -146,10 +146,10 @@
                                                     <DataTemplate>
                                                         <BoxView
                                                             BackgroundColor="{Binding ColorHex}"
-                                                            CornerRadius="25"
-                                                            HeightRequest="15"
+                                                            CornerRadius="10"
+                                                            HeightRequest="20"
                                                             HorizontalOptions="Start"
-                                                            WidthRequest="15" />
+                                                            WidthRequest="20" />
                                                     </DataTemplate>
                                                 </BindableLayout.ItemTemplate>
                                             </StackLayout>

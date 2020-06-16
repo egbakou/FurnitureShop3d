@@ -25,7 +25,7 @@ namespace FurnitureShop3d.ViewModels
 
             Categories = new ObservableRangeCollection<Category>();
             Categories.AddRange(DataStore.GetAllCategories());
-            CategorySelectionChanged = new Command(DoThing);
+            CategorySelectionChanged = new Command(FilterItems);
 
             var items = DataStore.Items;
 
@@ -42,7 +42,7 @@ namespace FurnitureShop3d.ViewModels
 
         }
 
-        private void DoThing(object obj)
+        public void FilterItems(object obj)
         {
             Items.Clear();
             var items = DataStore.GetItemsForCategory(obj.ToString());

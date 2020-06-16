@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
 
 namespace FurnitureShop3d.Views
@@ -35,17 +36,21 @@ namespace FurnitureShop3d.Views
             foreach (var child in parent.Children)
             {
                 VisualStateManager.GoToState(child, "Normal");
-                ChangeTextColor(child, "#707070");
+                ChangeTextColor(child, "#707070", false);
             }
 
             VisualStateManager.GoToState(view, "Selected");
-            ChangeTextColor(view, "#FFFFFF");
+            var panckake = view as PancakeView;
+            ChangeTextColor(view, "#FFFFFF", true);
         }
 
-        private void ChangeTextColor(View child, string hexColor)
+        private void ChangeTextColor(View child, string hexColor, bool isTheSelectedCategory)
         {
             var txtCtrl = child.FindByName<Label>("categoryName");
-
+            if (isTheSelectedCategory)
+            {
+                viewModel.FilterItems(txtCtrl.Text);
+            }
             if (txtCtrl != null)
                 txtCtrl.TextColor = Color.FromHex(hexColor);
         }

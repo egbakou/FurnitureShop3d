@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -99,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FurnitureShop3d\FurnitureShop3d.csproj">
-      <Project>{F4F820FD-1484-4EBD-A65C-A09C70685385}</Project>
+      <Project>{03C40509-5580-403C-B1AA-F85F842DC8E7}</Project>
       <Name>FurnitureShop3d</Name>
     </ProjectReference>
   </ItemGroup>

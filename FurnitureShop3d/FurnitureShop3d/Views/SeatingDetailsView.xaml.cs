@@ -28,7 +28,7 @@ namespace FurnitureShop3d.Views
                 await stackLayout.Children[0].ScaleTo(1.1, 200, Easing.CubicInOut);
                 await stackLayout.Children[0].ScaleTo(1, 500, Easing.CubicIn);
             }
-            
+
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

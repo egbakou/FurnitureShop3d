@@ -14,14 +14,20 @@
     x:Name="RootPage"
     ios:Page.PreferredStatusBarUpdateAnimation="Fade"
     ios:Page.PrefersHomeIndicatorAutoHidden="true"
-    ios:Page.PrefersStatusBarHidden="True"
+    ios:Page.PrefersStatusBarHidden="False"
     BackgroundColor="#BABDCE"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.Content>
 
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Grid Margin="0,0,0,80">
+            <Grid Margin="0,70,0,60">
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,70,0,60" />
+                        <On Platform="Android" Value="0,0,0,80" />
+                    </OnPlatform>
+                </Grid.Margin>
                 <controls:TitleBar />
             </Grid>
 
@@ -41,14 +47,19 @@
                 <cards:CoverFlowView.ItemTemplate>
                     <DataTemplate>
                         <Frame
-                            Grid.Row="2"
                             Margin="20,0,20,20"
-                            CornerRadius="20"
+                            CornerRadius="30"
                             HasShadow="False"
                             HorizontalOptions="FillAndExpand"
                             IsClippedToBounds="False"
                             VerticalOptions="FillAndExpand">
-                            <StackLayout Margin="0,-160,0,0">
+                            <StackLayout IsClippedToBounds="False">
+                                <StackLayout.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="iOS" Value="0,0,0,0" />
+                                        <On Platform="Android" Value="0,-160,0,0" />
+                                    </OnPlatform>
+                                </StackLayout.Margin>
                                 <!--  image  -->
                                 <Image
                                     sharedTransition:Transition.Name="SelectedItemImage"
@@ -73,8 +84,9 @@
                                     Text="$599"
                                     VerticalOptions="Fill" />
 
+                                <!--  description  -->
                                 <Label
-                                    Margin="0,-20"
+                                    Margin="0,0"
                                     FontFamily="HindRegularFont"
                                     FontSize="16"
                                     HorizontalOptions="Center"
@@ -98,7 +110,7 @@
                                                     <Frame
                                                         Padding="0"
                                                         BorderColor="#DDDDDD"
-                                                        CornerRadius="35"
+                                                        CornerRadius="27"
                                                         HasShadow="False"
                                                         HeightRequest="55"
                                                         HorizontalOptions="Center"
@@ -107,7 +119,7 @@
                                                         WidthRequest="55" />
                                                     <BoxView
                                                         BackgroundColor="{Binding ColorHex}"
-                                                        CornerRadius="25"
+                                                        CornerRadius="20"
                                                         HeightRequest="40"
                                                         HorizontalOptions="Center"
                                                         VerticalOptions="Center"
@@ -124,7 +136,9 @@
                                 <!--  buy button  -->
                                 <Button
                                     BackgroundColor="#232434"
-                                    CornerRadius="10"
+                                    CornerRadius="12"
+                                    FontSize="16"
+                                    HeightRequest="45"
                                     Text="Buy"
                                     TextColor="White"
                                     VerticalOptions="EndAndExpand" />
