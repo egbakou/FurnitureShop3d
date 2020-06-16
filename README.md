@@ -6,13 +6,15 @@ This UI Challenge is based on the fantastic dribble designs by [Saptarshi Prakas
 
 ## Dribble Design
 
-![](design/FurnitureShopping3d-dribbble-shot.gif)
+<div style="text-align:center"><img src="design/FurnitureShopping3d-dribbble-shot.gif" /></div>
 
-##  Android Screenshot
+
+
+##  Android Screenshots
 
 ![](design/android.png)
 
-##  IOS Screenshot
+##  IOS Screenshots
 
 ![](design/ios.png)
 
