@@ -10,11 +10,13 @@ This UI Challenge is based on the fantastic dribble designs by [Saptarshi Prakas
 
 
 
-##  Android Screenshots
+## Implementation (I'm still working on it)
 
-![](design/android.png)
+###  Android 
 
-##  IOS Screenshots
+<img src="design/android.png" width="600" />
+
+###  IOS
 
 ![](design/ios.png)
 
