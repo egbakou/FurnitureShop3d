@@ -14,7 +14,7 @@ This UI Challenge is based on the fantastic dribble designs by [Saptarshi Prakas
 
 ###  Android 
 
-<img src="design/android.png" width="600" />
+<img src="design/android.png" width="800" />
 
 ###  IOS
 
